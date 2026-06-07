@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center">
@@ -9,9 +10,12 @@ export default function Home() {
         Personalized family meal planning for Indian families
       </p>
 
-      <button className="mt-8 rounded-lg bg-black px-6 py-3 text-white">
-        Generate My Weekly Plan
-      </button>
+     <Link
+  href="/family"
+  className="mt-8 rounded-lg bg-black px-6 py-3 text-white"
+>
+  Create My Family Meal Plan
+</Link>
     </main>
   );
 }
