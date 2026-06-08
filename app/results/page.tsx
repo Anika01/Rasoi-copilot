@@ -17,8 +17,7 @@ const city = params.city;
 const goal = params.goal;
 const selectedPlan =
   mealPlans[goal as keyof typeof mealPlans];
-
-const monday = selectedPlan?.monday;    
+ 
 
 
 
@@ -41,13 +40,21 @@ const monday = selectedPlan?.monday;
 
         <div className="rounded-lg border p-6">
 
-          <h2 className="mb-4 text-2xl font-semibold">
-            Monday
-          </h2>
-<p>Breakfast: {monday?.breakfast}</p>
-<p>Lunch: {monday?.lunch}</p>
-<p>Dinner: {monday?.dinner}</p>
+          {selectedPlan &&
+  Object.entries(selectedPlan).map(([day, meals]) => (
+    <div
+      key={day}
+      className="mb-6 rounded-lg border p-4"
+    >
+      <h2 className="mb-3 text-2xl font-semibold capitalize">
+        {day}
+      </h2>
 
+      <p>Breakfast: {meals.breakfast}</p>
+      <p>Lunch: {meals.lunch}</p>
+      <p>Dinner: {meals.dinner}</p>
+    </div>
+  ))}
         </div>
 
       </div>

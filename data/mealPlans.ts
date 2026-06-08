@@ -5,6 +5,39 @@ export const mealPlans = {
       lunch: "Rajma Rice + Salad",
       dinner: "Paneer Bhurji + Jowar Roti",
     },
+    tuesday: {
+    breakfast: "Besan Chilla + Curd",
+    lunch: "Chole Rice + Salad",
+    dinner: "Tofu Curry + Roti",
+  },
+  wednesday: {
+    breakfast: "Oats Upma + Peanuts",
+    lunch: "Paneer Pulao + Raita",
+    dinner: "Soyabean Curry + Roti",
+  },
+  thursday: {
+  breakfast: "Paneer Sandwich + Milk",
+  lunch: "Dal Tadka + Rice + Salad",
+  dinner: "Soya Chunk Curry + Roti",
+},
+
+friday: {
+  breakfast: "Protein Smoothie + Banana",
+  lunch: "Chickpea Salad + Roti",
+  dinner: "Paneer Tikka + Veggies",
+},
+
+saturday: {
+  breakfast: "Poha + Roasted Peanuts",
+  lunch: "Rajma Rice + Cucumber Salad",
+  dinner: "Tofu Stir Fry + Roti",
+},
+
+sunday: {
+  breakfast: "Stuffed Paneer Paratha + Curd",
+  lunch: "Veg Pulao + Raita",
+  dinner: "Dal Khichdi + Salad",
+},
   },
 
   "Skin Health": {
@@ -13,6 +46,39 @@ export const mealPlans = {
       lunch: "Vegetable Millet Khichdi + Curd",
       dinner: "Tofu Stir Fry + Jowar Roti",
     },
+    tuesday: {
+    breakfast: "Besan Chilla + Curd",
+    lunch: "Chole Rice + Salad",
+    dinner: "Tofu Curry + Roti",
+  },
+  wednesday: {
+    breakfast: "Oats Upma + Peanuts",
+    lunch: "Paneer Pulao + Raita",
+    dinner: "Soyabean Curry + Roti",
+  },
+  thursday: {
+  breakfast: "Paneer Sandwich + Milk",
+  lunch: "Dal Tadka + Rice + Salad",
+  dinner: "Soya Chunk Curry + Roti",
+},
+
+friday: {
+  breakfast: "Protein Smoothie + Banana",
+  lunch: "Chickpea Salad + Roti",
+  dinner: "Paneer Tikka + Veggies",
+},
+
+saturday: {
+  breakfast: "Poha + Roasted Peanuts",
+  lunch: "Rajma Rice + Cucumber Salad",
+  dinner: "Tofu Stir Fry + Roti",
+},
+
+sunday: {
+  breakfast: "Stuffed Paneer Paratha + Curd",
+  lunch: "Veg Pulao + Raita",
+  dinner: "Dal Khichdi + Salad",
+},
   },
 
   "Hair Growth": {

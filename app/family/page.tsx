@@ -105,10 +105,7 @@ export default function FamilyPage() {
   <option>Better Energy</option>
 </select>
   </div>
-<p>Selected Goal: {goal}</p>
-<p>Name: {name}</p>
-<p>City: {city}</p>
-<p>Goal: {goal}</p>
+
   <button
    onClick={() => {
     console.log(name);
