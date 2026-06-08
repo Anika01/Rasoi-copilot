@@ -1,15 +1,20 @@
-"use client";
 
-import { useSearchParams } from "next/navigation";
 import { mealPlans } from "../../data/mealPlans";
 
+export default async function ResultsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    name?: string;
+    city?: string;
+    goal?: string;
+  }>;
+}) {
+   const params = await searchParams;
 
-export default function ResultsPage() {
-    const searchParams = useSearchParams();
-
-const name = searchParams.get("name");
-const city = searchParams.get("city");
-const goal = searchParams.get("goal");
+const name = params.name;
+const city = params.city;
+const goal = params.goal;
 const selectedPlan =
   mealPlans[goal as keyof typeof mealPlans];
 
@@ -30,8 +35,8 @@ const monday = selectedPlan?.monday;
 
 <p className="text-gray-600">
     
-  Your personalized{goal} meal plan is ready.
-  Also tailored as per your mentioned city: {city}
+  Your personalized {goal} meal plan is ready.
+ Tailored as per your mentioned city (local food preferences): {city}
 </p>
 
         <div className="rounded-lg border p-6">
