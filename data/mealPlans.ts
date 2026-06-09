@@ -1,5 +1,13 @@
 export const mealPlans = {
   "High Protein": {
+    shoppingList: [
+  "Paneer",
+  "Tofu",
+  "Rajma",
+  "Chole",
+  "Milk",
+  "Curd",
+],
     monday: {
       breakfast: "Moong Chilla + Mint Chutney",
       lunch: "Rajma Rice + Salad",
@@ -41,6 +49,14 @@ sunday: {
   },
 
   "Skin Health": {
+    shoppingList: [
+  "Chia Seeds",
+  "Fruits",
+  "Millets",
+  "Curd",
+  "Tofu",
+  "Pumpkin Seeds",
+],
     monday: {
       breakfast: "Fruit Bowl + Chia Seeds",
       lunch: "Vegetable Millet Khichdi + Curd",
@@ -81,11 +97,57 @@ sunday: {
 },
   },
 
-  "Hair Growth": {
-    monday: {
-      breakfast: "Sprouts Chaat",
-      lunch: "Beetroot Dal + Rice",
-      dinner: "Paneer Vegetable Curry",
-    },
+ 
+    "Hair Growth": {
+        shoppingList: [
+  "Spinach",
+  "Beetroot",
+  "Sprouts",
+  "Dates",
+  "Almonds",
+  "Paneer",
+],
+  monday: {
+    breakfast: "Sprouts Chaat",
+    lunch: "Beetroot Dal + Rice",
+    dinner: "Paneer Vegetable Curry",
   },
+
+  tuesday: {
+    breakfast: "Dates + Almond Smoothie",
+    lunch: "Palak Dal + Rice",
+    dinner: "Paneer Bhurji + Roti",
+  },
+
+  wednesday: {
+    breakfast: "Mixed Seeds Poha",
+    lunch: "Rajma + Salad",
+    dinner: "Methi Thepla + Curd",
+  },
+
+  thursday: {
+    breakfast: "Fruit Bowl + Pumpkin Seeds",
+    lunch: "Spinach Khichdi",
+    dinner: "Tofu Stir Fry",
+  },
+
+  friday: {
+    breakfast: "Moong Chilla",
+    lunch: "Beetroot Pulao",
+    dinner: "Dal + Roti",
+  },
+
+  saturday: {
+    breakfast: "Peanut Butter Toast",
+    lunch: "Chole Rice",
+    dinner: "Paneer Tikka",
+  },
+
+  sunday: {
+    breakfast: "Sprouts Salad",
+    lunch: "Vegetable Pulao",
+    dinner: "Dal Khichdi",
+  },
+},
+  
 };

@@ -4,13 +4,24 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function FamilyPage() {
-      const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+      
   const [city, setCity] = useState("");
-  const [gender, setGender] = useState("");
+  const [age, setAge] = useState("");
+  const [householdType, setHouseholdType] = useState("");
+const [dietPreference, setDietPreference] = useState("");
+const [challenge, setChallenge] = useState("");
+  
   const [goal, setGoal] = useState("");
-  const [showResult, setShowResult] = useState(false);
+
     const router = useRouter();
+    const handleSpecialNeedChange = (value: string) => {
+  setSpecialNeeds((prev) =>
+    prev.includes(value)
+      ? prev.filter((item) => item !== value)
+      : [...prev, value]
+  );
+};
+    const [specialNeeds, setSpecialNeeds] = useState<string[]>([]);
   return (
     <main className="min-h-screen p-8">
       <div className="mx-auto max-w-xl">
@@ -26,27 +37,9 @@ export default function FamilyPage() {
 
       <div className="space-y-5">
 
-  <div>
-    <label className="block mb-1 font-medium">Name</label>
-  <input
-  type="text"
-  placeholder="Enter your name"
-  className="w-full rounded border p-3"
-  value={name}
-  onChange={(e) => setName(e.target.value)}
-/>
-  </div>
 
-  <div>
-    <label className="block mb-1 font-medium">Age</label>
-  <input
-  type="number"
-  placeholder="Enter your age"
-  className="w-full rounded border p-3"
-  value={age}
-  onChange={(e) => setAge(e.target.value)}
-/>
-  </div>
+
+  
 <div>
   <label className="block mb-1 font-medium">
     City
@@ -60,34 +53,118 @@ export default function FamilyPage() {
   onChange={(e) => setCity(e.target.value)}
 />
 </div>
+<div>
+  <label className="block mb-1 font-medium">
+    Your Age
+  </label>
+
+  <input
+    type="number"
+    placeholder="30"
+    className="w-full rounded border p-3"
+    value={age}
+    onChange={(e) => setAge(e.target.value)}
+  />
+</div>
  <div>
   <label className="block mb-1 font-medium">
     Who are you planning meals for?
   </label>
 
-  <select className="w-full rounded border p-3">
-    <option>Just Me</option>
-    <option>Me + Partner</option>
-    <option>Family with Toddler</option>
-    <option>Family with Children</option>
-    <option>Multi-generation Family</option>
-  </select>
+ <select
+  className="w-full rounded border p-3"
+  value={householdType}
+  onChange={(e) => setHouseholdType(e.target.value)}
+>
+  <option value="">Select Household Type</option>
+  <option>Just Me</option>
+  <option>Couple</option>
+  <option>Family with Children</option>
+  <option>Multi-generation Family</option>
+</select>
+<div>
+  <label className="block mb-2 font-medium">
+    Anyone in your household?
+  </label>
+
+  <div className="space-y-2">
+    <label className="block">
+      <input
+  type="checkbox"
+  className="mr-2"
+  onChange={() =>
+    handleSpecialNeedChange("Toddler")
+  }
+/>
+      Toddler (1–5 years)
+    </label>
+
+    <label className="block">
+      <input
+  type="checkbox"
+  className="mr-2"
+  onChange={() =>
+    handleSpecialNeedChange("Pregnant Woman")
+  }
+/>  
+      Pregnant Woman
+    </label>
+
+    <label className="block">
+     <input
+  type="checkbox"
+  className="mr-2"
+  onChange={() =>
+    handleSpecialNeedChange("Breastfeeding Mother")
+  }
+/>
+      Breastfeeding Mother
+    </label>
+
+    <label className="block">
+      <input
+  type="checkbox"
+  className="mr-2"
+  onChange={() =>
+    handleSpecialNeedChange("Senior Citizen")
+  }
+/>
+      Senior Citizen
+    </label>
+    <label className="block">
+  <input
+  type="checkbox"
+  className="mr-2"
+  onChange={() =>
+    handleSpecialNeedChange("None")
+  }
+/>
+  None of the Above
+</label>
+  </div>
+</div>
 </div>
 
   <div>
     <label className="block mb-1 font-medium">
       Diet Preference
     </label>
-    <select className="w-full rounded border p-3">
-      <option>Vegetarian</option>
-      <option>Vegan</option>
-      <option>Eggetarian</option>
-    </select>
+    <select
+  className="w-full rounded border p-3"
+  value={dietPreference}
+  onChange={(e) => setDietPreference(e.target.value)}
+>
+  <option value="">Select Preference</option>
+  <option>Vegetarian</option>
+  <option>Eggetarian</option>
+  <option>Vegan</option>
+</select>
+      
   </div>
 
   <div>
     <label className="block mb-1 font-medium">
-      What should your meal plan focus on?
+      What is the primary meal plan goal for your household?
     </label>
  <select
   className="w-full rounded border p-3"
@@ -95,26 +172,60 @@ export default function FamilyPage() {
   onChange={(e) => setGoal(e.target.value)}
 >
   <option value="">Select Goal</option>
-  <option>High Protein</option>
-  <option>Hair Growth</option>
-  <option>Skin Health</option>
-  <option>Hydration</option>
-  <option>Weight Loss</option>
-  <option>Weight Gain</option>
-  <option>Gut Health</option>
-  <option>Better Energy</option>
+
+<option value="Skin Health">
+  General Family Health
+</option>
+
+<option value="High Protein">
+  High Protein Meals
+</option>
+
+<option value="High Protein">
+  Weight Management
+</option>
+
+<option value="Hair Growth">
+  Hair & Skin Health
+</option>
+
+<option value="High Protein">
+  Better Energy Throughout the Day
+</option>
+
+<option value="Skin Health">
+  Easy & Practical Home Cooking
+</option>
 </select>
   </div>
+<div>
+  <label className="block mb-1 font-medium">
+    What's your biggest meal planning challenge?
+  </label>
 
+  <select
+    className="w-full rounded border p-3"
+    value={challenge}
+    onChange={(e) => setChallenge(e.target.value)}
+  >
+    <option value="">Select Challenge</option>
+    <option>Running out of meal ideas</option>
+    <option>Need healthier meals</option>
+    <option>Need more protein</option>
+    <option>Managing different family needs</option>
+    <option>Planning groceries</option>
+    <option>Reducing cooking effort</option>
+  </select>
+</div>
   <button
    onClick={() => {
     console.log(name);
     console.log(city);
     console.log(goal);
 
-    router.push(
-      `/results?name=${name}&city=${city}&goal=${goal}`
-    );
+router.push(
+  `/results?city=${city}&age=${age}&householdType=${householdType}&dietPreference=${dietPreference}&goal=${goal}&challenge=${challenge}&specialNeeds=${specialNeeds.join(",")}`
+);
   }}
   className="w-full rounded bg-black p-3 text-white"
 >
