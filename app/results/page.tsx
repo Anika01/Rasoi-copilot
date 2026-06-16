@@ -23,6 +23,34 @@ const dietPreference = params.dietPreference;
 const challenge = params.challenge;
 const specialNeeds = params.specialNeeds;
 const goal = params.goal;
+console.log(
+  "API KEY FOUND:",
+  !!process.env.ANTHROPIC_API_KEY
+);
+
+const aiPrompt = `
+Create a 7-day Indian home-cooking meal plan.
+
+City: ${city}
+Age: ${age}
+
+Household Type: ${householdType}
+
+Special Needs: ${specialNeeds || "None"}
+
+Diet Preference: ${dietPreference}
+
+Goal: ${goal}
+
+Biggest Challenge: ${challenge}
+
+Requirements:
+- Indian home-cooked meals
+- Practical weekday cooking
+- Family-friendly
+- Include breakfast, lunch and dinner
+- Include a shopping list
+`;
 searchParams: Promise<{
   city?: string;
   age?: string;
@@ -60,7 +88,7 @@ const selectedPlan =
   <p>🎂 Age: {age}</p>
   <p>👨‍👩‍👧 Household: {householdType}</p>
   <p>🥬 Diet Preference: {dietPreference}</p>
-  <p>🎯 Goal: {goal}</p>
+  <p>🎯 Selected Goal Plan: {goal}</p>
   <p>💡 Challenge: {challenge}</p>
   <p>❤️ Special Needs: {specialNeeds || "None"}</p>
   <hr className="my-4" />
@@ -74,6 +102,15 @@ const selectedPlan =
 <p>✓ Focused on {goal}</p>
 <p>✓ Designed to help with: {challenge}</p>
 <p>✓ Adjusted for location: {city}</p>
+</div>
+<div className="mt-6 rounded-lg border bg-blue-50 p-5">
+  <h2 className="mb-3 text-xl font-semibold">
+    AI Prompt Preview
+  </h2>
+
+  <pre className="whitespace-pre-wrap text-sm">
+    {aiPrompt}
+  </pre>
 </div>
         <div className="rounded-lg border p-6">
 
@@ -94,6 +131,35 @@ const selectedPlan =
 <p>Dinner: {(meals as any).dinner}</p>
     </div>
   ))}
+  <div className="mt-8 rounded-lg border bg-green-50 p-6">
+  <h2 className="mb-4 text-2xl font-semibold">
+    Recommendations For Your Goal
+  </h2>
+
+  {goal === "High Protein" && (
+    <>
+      <p>✓ Include protein in every meal</p>
+      <p>✓ Prioritize paneer, tofu, dal and legumes</p>
+      <p>✓ Add curd or milk for extra protein</p>
+    </>
+  )}
+
+  {goal === "Hair Growth" && (
+    <>
+      <p>✓ Include iron-rich foods daily</p>
+      <p>✓ Add seeds, nuts and leafy vegetables</p>
+      <p>✓ Prioritize protein for healthy hair growth</p>
+    </>
+  )}
+
+  {goal === "Skin Health" && (
+    <>
+      <p>✓ Increase fruits and vegetables</p>
+      <p>✓ Stay hydrated throughout the day</p>
+      <p>✓ Include healthy fats and seeds</p>
+    </>
+  )}
+</div>
   {shoppingList && (
   <div className="mt-8 rounded-lg border p-6">
     <h2 className="mb-4 text-2xl font-semibold">
